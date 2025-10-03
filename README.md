@@ -1,1 +1,1 @@
-# coursera_shoppingcart
+# coding-project-template
