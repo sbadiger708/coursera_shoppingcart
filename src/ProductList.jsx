@@ -266,6 +266,10 @@ function ProductList({ onHomeClick }) {
     }));
     };
 
+    const calculateTotalQuantity = () => {
+        return CartItems ? CartItems.reduce((total, item) => total + item.quantity, 0) : 0;
+    };
+
     return (
         <div>
             <div className="navbar" style={styleObj}>
@@ -287,16 +291,16 @@ function ProductList({ onHomeClick }) {
                 </div>
             </div>
             {!showCart ? (
-                <div>
+                <div className='product-grid'>
                     {plantsArray.map(({ plants }) => (
                         plants.map((plant) => (
-                            <div className='product-grid'>
+                            <card>
                                 <h1>{plant.name}</h1>
                                 <img src={plant.image} width={100}/>
                                 <p>{plant.description}</p>
                                 <h2>{plant.cost}</h2>
                                 <button onClick={() => handleAddToCart(plant)}>Add to cart</button>
-                            </div>
+                            </card>
                         ))
                     ))}
 
